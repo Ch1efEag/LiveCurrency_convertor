@@ -5,6 +5,7 @@ function InputBox({
     amountDisabled = false,
     onAmountChanged,
     onCurrencyChanged,
+    currencyOptions,
     currencyDisabled = false
 
 }){
