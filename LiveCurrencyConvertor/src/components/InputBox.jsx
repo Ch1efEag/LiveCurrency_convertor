@@ -1,18 +1,44 @@
 import React from "react";
 
-function InputBox(){
+function InputBox({
+    label,
+    amountDisabled = false,
+    onAmountChanged,
+    onCurrencyChanged,
+    currencyDisabled = false
+
+}){
 
     return (<>
     <div>
         <div>
-            <label></label>
-            <input/>
+            <label>
+                {label}
+            </label>
+            <input
+            type = "number"
+            placeholder="Amount"
+            disabled = {amountDisabled}
+            value = {amount}
+            onChange={(e) => onAmountChanged && onAmountChanged(Number(e.target.value))}
+            />
         </div>
 
         <div>
-    <p></p>
-    <select>
+    <p>Currency Type</p>
+    <select
+        value = {selectedcurrency}
+        onchange = {(e) => onCurrencyChanged && onCurrencyChanged(e.target.value)}
+        disabled = {currencyDisabled}
+    >
 
+    {
+        currencyOptions.map((currency) => (
+            <option value = {currency}>
+                {currency}
+            </option>
+        ))
+    }
     </select>
         </div>
     </div>
